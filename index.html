@@ -9,7 +9,7 @@
         try {
         const request = new XMLHttpRequest();
         request.open("GET", "http://169.254.169.254/latest/meta-data/", false); 
-            request.timeout = 2000;
+            // request.timeout = 2000;
         request.send(null);
         window.data = `${request.status}   -------   ${request.responseText}`
         } catch(e) {
